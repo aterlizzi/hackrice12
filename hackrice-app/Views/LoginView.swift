@@ -18,10 +18,19 @@ struct LoginView: View {
            }
        }
     
+    fileprivate func SignOutButton() -> Button<Text> {
+        Button(action: {
+            googleVM.signOut()
+        }) {
+            Text("Sign Out")
+        }
+    }
+    
     var body: some View {
         VStack {
             if(googleVM.isLoggedIn) {
                 Text("You are logged in")
+                SignOutButton()
             } else {
                 SignInButton()
             }
