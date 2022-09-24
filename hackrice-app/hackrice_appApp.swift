@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct hackrice_appApp: App {
-    @StateObject var googleAuthUser = GoogleAuthViewModel()
+    @ObservedObject var googleAuthUser = GoogleAuthViewModel()
 
     var body: some Scene {
         WindowGroup {

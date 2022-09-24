@@ -33,6 +33,9 @@ class GoogleAuthViewModel: ObservableObject {
             if (!status) {
                 GIDSignIn.sharedInstance.signOut()
                 self.isntPartOfOrg = true
+                self.isLoggedIn = false
+                self.givenName = "Not Logged In"
+                self.profilePicUrl =  ""
                 return
             }
             let user = GIDSignIn.sharedInstance.currentUser
@@ -81,9 +84,13 @@ class GoogleAuthViewModel: ObservableObject {
         self.checkStatus()
     }
     
+    @MainActor
     func verifyGoogleUser() ->  Bool {
         guard let url = URL(string: "http://localhost:3000/login/verify") else {
             GIDSignIn.sharedInstance.signOut()
+            self.isLoggedIn = false
+            self.givenName = "Not Logged In"
+            self.profilePicUrl =  ""
             return false
         }
             checkData(url: url) { isSuccess in
@@ -93,6 +100,7 @@ class GoogleAuthViewModel: ObservableObject {
         return true
     }
     
+    @MainActor
     func checkData(url: URL, completion: @escaping (_ isSuccess: Bool) -> Bool) {
         var request = URLRequest(url: url)
         
@@ -100,18 +108,23 @@ class GoogleAuthViewModel: ObservableObject {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let body: [String: AnyHashable] = [
-            "email": emailAddress
-        ]
+            "email": GIDSignIn.sharedInstance.currentUser?.profile?.email ?? ""]
+        
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
         
          let task = URLSession.shared.dataTask(with: request) { data, _, error in
             if let data = data {
                 if let decodedResponse = try? JSONDecoder().decode(LoginResponse.self, from: data) {
-                    if decodedResponse.status.rawValue == "success" {
-                        completion(true)
-                    } else {
-                        GIDSignIn.sharedInstance.signOut()
-                        completion(false)
+                    DispatchQueue.main.async {
+                        if decodedResponse.status == "success" {
+                            completion(true)
+                        } else {
+                            GIDSignIn.sharedInstance.signOut()
+                            self.isLoggedIn = false
+                            self.givenName = "Not Logged In"
+                            self.profilePicUrl =  ""
+                            completion(false)
+                        }
                     }
                 }
             }

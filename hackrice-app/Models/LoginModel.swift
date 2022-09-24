@@ -9,13 +9,8 @@ import Foundation
 
 // Response from backend should be encoded to this data structure.
 struct LoginResponse: Codable {
-    var status: Status
-    var message: String
-}
-
-enum Status: String, Codable {
-    case success
-    case failure
+    var status: String?
+    var message: String?
 }
 
 

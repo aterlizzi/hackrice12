@@ -10,36 +10,25 @@ import SwiftUI
 struct LoginView: View {
     @EnvironmentObject var googleVM: GoogleAuthViewModel
     
-    fileprivate func SignInButton() -> Button<Text> {
-           Button(action: {
-               googleVM.signIn()
-           }) {
-               Text("Sign In")
-           }
-       }
-    
-    fileprivate func SignOutButton() -> Button<Text> {
-        Button(action: {
-            googleVM.signOut()
-        }) {
-            Text("Sign Out")
-        }
-    }
-    
     var body: some View {
         VStack {
             if(googleVM.isLoggedIn) {
-                Text("You are logged in")
-                SignOutButton()
+                Button {
+                    googleVM.signOut()
+                } label: {
+                    Text("Sign Out")
+                        .foregroundColor(.black)
+                        .padding(30)
+                }
             } else {
-                SignInButton()
+                Button {
+                    googleVM.signIn()
+                } label: {
+                    Text("Sign In")
+                        .foregroundColor(.black)
+                        .padding(30)
+                }
             }
         }
-    }
-}
-
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
     }
 }
