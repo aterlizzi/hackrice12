@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct hackrice_appApp: App {
+    @StateObject var googleAuthUser = GoogleAuthViewModel()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                LoginView()
+            }
+            .environmentObject(googleAuthUser)
+            .navigationViewStyle(.stack)
         }
     }
 }

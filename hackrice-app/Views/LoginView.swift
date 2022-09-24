@@ -8,15 +8,29 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State var response: LoginResponse
+    @EnvironmentObject var googleVM: GoogleAuthViewModel
+    
+    fileprivate func SignInButton() -> Button<Text> {
+           Button(action: {
+               googleVM.signIn()
+           }) {
+               Text("Sign In")
+           }
+       }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            if(googleVM.isLoggedIn) {
+                Text("You are logged in")
+            } else {
+                SignInButton()
+            }
+        }
     }
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(response: LoginResponse(status: .success, message: "Successful logged in"))
+        LoginView()
     }
 }

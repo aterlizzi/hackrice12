@@ -27,6 +27,7 @@
 		10F77B3328DEAEF100D5FB5C /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		10F77B3728DEB25F00D5FB5C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		10F77B3E28DEC43600D5FB5C /* GoogleLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLoginViewModel.swift; sourceTree = "<group>"; };
+		10F77B4028DEC9C800D5FB5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +62,7 @@
 		10F77B2128DEABD600D5FB5C /* hackrice-app */ = {
 			isa = PBXGroup;
 			children = (
+				10F77B4028DEC9C800D5FB5C /* Info.plist */,
 				10F77B3228DEAEBF00D5FB5C /* ViewModels */,
 				10F77B3128DEAEB700D5FB5C /* Models */,
 				10F77B3028DEAEA100D5FB5C /* Views */,
@@ -317,6 +319,7 @@
 				DEVELOPMENT_TEAM = LLRQA47Q83;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "hackrice-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -346,6 +349,7 @@
 				DEVELOPMENT_TEAM = LLRQA47Q83;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "hackrice-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

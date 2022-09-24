@@ -1,12 +1,11 @@
 //
-//  GoogleLoginViewModel.swift
+//  GoogleAuthViewModel.swift
 //  hackrice-app
 //
 //  Created by Aidan Terlizzi on 9/23/22.
 //
 
 import Foundation
-
 import SwiftUI
 import GoogleSignIn
 
@@ -51,7 +50,7 @@ class GoogleAuthViewModel: ObservableObject {
         
         guard let presentingViewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else {return}
         
-        let signInConfig = GIDConfiguration.init(clientID: "CLIENT-ID")
+        let signInConfig = GIDConfiguration.init(clientID: "881190902094-mokf60mqsqohtl15e4oko8vat5v66onk.apps.googleusercontent.com")
         GIDSignIn.sharedInstance.signIn(
             with: signInConfig,
             presenting: presentingViewController) { user, error in
