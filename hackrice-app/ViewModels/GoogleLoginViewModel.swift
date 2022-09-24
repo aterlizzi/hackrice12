@@ -16,6 +16,7 @@ class GoogleAuthViewModel: ObservableObject {
     @Published var isLoggedIn: Bool = false
     @Published var errorMessage: String = ""
     @Published var isntPartOfOrg: Bool = false
+    @Published var emailAddress: String = ""
     
     init(){
         check()
@@ -37,8 +38,10 @@ class GoogleAuthViewModel: ObservableObject {
             let user = GIDSignIn.sharedInstance.currentUser
             guard let user = user else { return }
             let givenName = user.profile?.givenName
+            let emailAddress = user.profile?.email
             let profilePicUrl = user.profile!.imageURL(withDimension: 100)!.absoluteString
             self.givenName = givenName ?? ""
+            self.emailAddress = emailAddress ?? ""
             self.profilePicUrl = profilePicUrl
             self.isLoggedIn = true
         } else{
@@ -91,7 +94,17 @@ class GoogleAuthViewModel: ObservableObject {
     }
     
     func checkData(url: URL, completion: @escaping (_ isSuccess: Bool) -> Bool) {
-         let task = URLSession.shared.dataTask(with: url) { data, _, error in
+        var request = URLRequest(url: url)
+        
+//      create the post request
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let body: [String: AnyHashable] = [
+            "email": emailAddress
+        ]
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+        
+         let task = URLSession.shared.dataTask(with: request) { data, _, error in
             if let data = data {
                 if let decodedResponse = try? JSONDecoder().decode(LoginResponse.self, from: data) {
                     if decodedResponse.status.rawValue == "success" {
@@ -106,23 +119,3 @@ class GoogleAuthViewModel: ObservableObject {
         task.resume()
     }
 }
-
-//func fetchData() async {
-////        establish url
-//    guard let url = URL(string: "http://localhost:5000") else {
-//        print("Failed to fetch login...")
-//        return
-//    }
-//
-////        fetch data from url
-//    do {
-//        let (data, _) = try await URLSession.shared.data(from: url)
-//
-////            decode the data
-//        if let decodedResponse = try? JSONDecoder().decode(LoginResponse.self, from: data) {
-//            response = decodedResponse
-//        }
-//    } catch {
-//        print("Failed to decode data, invalid format.")
-//    }
-//}
