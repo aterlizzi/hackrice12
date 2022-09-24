@@ -16,6 +16,7 @@
 		10F77B3B28DEC41700D5FB5C /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 10F77B3A28DEC41700D5FB5C /* GoogleSignIn */; };
 		10F77B3D28DEC41700D5FB5C /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 10F77B3C28DEC41700D5FB5C /* GoogleSignInSwift */; };
 		10F77B3F28DEC43600D5FB5C /* GoogleLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F77B3E28DEC43600D5FB5C /* GoogleLoginViewModel.swift */; };
+		27D5072828DF6A04007F7B41 /* HomePageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D5072728DF6A04007F7B41 /* HomePageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		10F77B3728DEB25F00D5FB5C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		10F77B3E28DEC43600D5FB5C /* GoogleLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLoginViewModel.swift; sourceTree = "<group>"; };
 		10F77B4028DEC9C800D5FB5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		27D5072728DF6A04007F7B41 /* HomePageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				10F77B3728DEB25F00D5FB5C /* LoginView.swift */,
+				27D5072728DF6A04007F7B41 /* HomePageModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				10F77B2528DEABD600D5FB5C /* ContentView.swift in Sources */,
 				10F77B3428DEAEF100D5FB5C /* LoginModel.swift in Sources */,
 				10F77B3828DEB25F00D5FB5C /* LoginView.swift in Sources */,
+				27D5072828DF6A04007F7B41 /* HomePageModel.swift in Sources */,
 				10F77B2328DEABD600D5FB5C /* hackrice_appApp.swift in Sources */,
 				10F77B3F28DEC43600D5FB5C /* GoogleLoginViewModel.swift in Sources */,
 			);
