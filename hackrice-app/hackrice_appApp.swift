@@ -10,13 +10,19 @@ import SwiftUI
 @main
 struct hackrice_appApp: App {
     @ObservedObject var googleAuthUser = GoogleAuthViewModel()
+    @ObservedObject var homePage = HomePageViewModel()
 
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                LoginView()
+                if googleAuthUser.isLoggedIn {
+                    HomePage()
+                        .environmentObject(homePage)
+                } else {
+                    LoginView()
+                        .environmentObject(googleAuthUser)
+                }
             }
-            .environmentObject(googleAuthUser)
             .navigationViewStyle(.stack)
         }
     }

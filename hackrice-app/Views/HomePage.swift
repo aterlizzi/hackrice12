@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct HomePageModel: View {
+struct HomePage: View {
+    @EnvironmentObject var homePageVM: HomePageViewModel
+    
     var body: some View {
         VStack {
             ZStack(alignment: .topLeading) {
@@ -19,12 +21,16 @@ struct HomePageModel: View {
                     .padding(25)
                 
             }
-            ZStack(alignment: .topLeading) {
-                RoundedRectangle(cornerRadius: 30, style: .continuous).size(CGSize(width: 250, height: 250))
-                Text("Unlock \nNearest \nDoor")
-                    .foregroundColor(.white)
-                    .font(.largeTitle).bold()
-                    .padding(25)
+            Button {
+                homePageVM.openNearestDoor(coordinates: [-95.40202666671637, 29.71786358463996])
+            } label: {
+                ZStack(alignment: .topLeading) {
+                    RoundedRectangle(cornerRadius: 30, style: .continuous).size(CGSize(width: 250, height: 250))
+                    Text("Unlock \nNearest \nDoor")
+                        .foregroundColor(.white)
+                        .font(.largeTitle).bold()
+                        .padding(25)
+                }
             }
         }
     }
@@ -32,7 +38,7 @@ struct HomePageModel: View {
 
 struct HomePageModel_Previews: PreviewProvider {
     static var previews: some View {
-        HomePageModel()
+        HomePage()
     }
 }
 
