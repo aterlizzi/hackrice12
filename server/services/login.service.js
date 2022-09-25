@@ -1,7 +1,13 @@
 import { getFirestore } from "firebase-admin/firestore";
+import distanceBetweenCoordinates from "../utils/coordinateDistance.js";
 
 export const verifyUserInDatabase = async (email) => {
-  console.log(email);
+  console.log(
+    distanceBetweenCoordinates(
+      [-95.40191605830731, 29.71787169866097],
+      [-95.4023016820948, 29.718585849840114]
+    )
+  );
   if (email == "")
     return {
       status: "failure",
