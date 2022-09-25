@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomePage: View {
     @EnvironmentObject var homePageVM: HomePageViewModel
+    @EnvironmentObject var locationManager: LocationManager
     
     var body: some View {
         VStack {
@@ -22,7 +23,10 @@ struct HomePage: View {
                 
             }
             Button {
-                homePageVM.openNearestDoor(coordinates: [-95.40202666671637, 29.71786358463996])
+                if let latitude = locationManager.userLocation?.coordinate.latitude,
+                   let longitude = locationManager.userLocation?.coordinate.longitude {
+                    homePageVM.openNearestDoor(coordinates: [longitude, latitude])
+                }
             } label: {
                 ZStack(alignment: .topLeading) {
                     RoundedRectangle(cornerRadius: 30, style: .continuous).size(CGSize(width: 250, height: 250))
