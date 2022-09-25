@@ -16,8 +16,9 @@ struct hackrice_appApp: App {
         WindowGroup {
             NavigationView {
                 if googleAuthUser.isLoggedIn {
-                    HomePage()
-                        .environmentObject(homePage)
+//                    HomePage()
+//                        .environmentObject(homePage)
+                    LocationContentView()
                 } else {
                     LoginView()
                         .environmentObject(googleAuthUser)
