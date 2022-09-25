@@ -14,7 +14,7 @@ struct LoginView: View {
         VStack(alignment: .center) {
             Spacer()
             Text("GeograKey")
-                .font(.title)
+                .font(.largeTitle)
                 .foregroundColor(.black)
                 .multilineTextAlignment(.center)
                 .fontWeight(.heavy)

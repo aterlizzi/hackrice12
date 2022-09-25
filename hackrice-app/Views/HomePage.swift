@@ -12,9 +12,13 @@ struct HomePage: View {
     @EnvironmentObject var locationManager: LocationManager
     @EnvironmentObject var googleAuthVM: GoogleAuthViewModel
     
+    var colors: [Color] = [.pastelGreen, .green, .red, .pastelPurple]
+
+    
     var body: some View {
         ZStack(alignment: .topLeading) {
             Color.black
+                .opacity(0.90)
                 .ignoresSafeArea()
             Spacer()
             VStack(alignment: .leading) {
@@ -27,6 +31,11 @@ struct HomePage: View {
                             .padding(.bottom, 5)
                         Text("Welcome Back!")
                             .foregroundColor(.white)
+                            .font(.title3)
+                            .padding(.bottom, 3)
+                        Text("Rice University")
+                            .foregroundColor(.white)
+                            .opacity(0.7)
                     }
                 }
                 Spacer()
@@ -35,11 +44,15 @@ struct HomePage: View {
                         Button {
                             if let latitude = locationManager.userLocation?.coordinate.latitude,
                                let longitude = locationManager.userLocation?.coordinate.longitude {
-                                homePageVM.openNearestDoor(coordinates: [longitude, latitude])
+                                homePageVM.openNearestDoor(coordinates: [longitude, latitude], email: googleAuthVM.emailAddress)
                             }
                         } label: {
                             ZStack {
-                                Color.pastelGreen
+                                SplashView(animationType: .leftToRight, color: self.colors[homePageVM.doorOpened == .unopened ? 0 : homePageVM.doorOpened == .open ? 1 : homePageVM.doorOpened == .failed ? 2 : homePageVM.doorOpened == .noPermission ? 3 : 0])
+                                    .frame(width: 125, height: 300)
+                                    .cornerRadius(20)
+                                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 4)
+
                                 VStack {
                                     Image(systemName: "lock.shield")
                                         .renderingMode(.template)
