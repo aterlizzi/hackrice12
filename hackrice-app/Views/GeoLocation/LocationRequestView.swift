@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LocationContentView: View {
-    @ObservedObject var locationManager = LocationManager.shared
+    @EnvironmentObject var locationManager: LocationManager
     
     var body: some View {
         Group{

@@ -11,14 +11,17 @@ import SwiftUI
 struct hackrice_appApp: App {
     @ObservedObject var googleAuthUser = GoogleAuthViewModel()
     @ObservedObject var homePage = HomePageViewModel()
+    @ObservedObject var locationManager = LocationManager.shared
 
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                if googleAuthUser.isLoggedIn {
-//                    HomePage()
-//                        .environmentObject(homePage)
+                if googleAuthUser.isLoggedIn && locationManager.userLocation != nil {
+                    HomePage()
+                        .environmentObject(homePage)
+                } else if (googleAuthUser.isLoggedIn && locationManager.userLocation == nil) {
                     LocationContentView()
+                        .environmentObject(locationManager)
                 } else {
                     LoginView()
                         .environmentObject(googleAuthUser)
