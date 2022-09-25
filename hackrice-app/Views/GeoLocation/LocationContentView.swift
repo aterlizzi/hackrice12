@@ -10,21 +10,15 @@ import SwiftUI
 struct LocationRequestView: View {
     var body: some View {
         ZStack{
-            Color(.systemMint).ignoresSafeArea()
             VStack{
-                RoundedRectangle(cornerRadius: 30,style: .circular)
-                    .size(CGSize(width: 250, height: 250))
-                    .padding (.bottom, 32)
-                    .offset(x:70, y:100)
-                
+                Spacer()
                 Text("Please share your phone's location to continue")
                     .font(.system(size: 28, weight: .semibold))
                     .multilineTextAlignment(.center)
                     .padding()
                     
-                Text("Start sharing now")
+                Text("We use your location to locate the correct door, saving you countless time.")
                     .multilineTextAlignment(.center)
-                    .frame(width: 140)
                     .padding()
                 
                 Spacer()
@@ -36,11 +30,11 @@ struct LocationRequestView: View {
                         Text("Allow location")
                             .padding()
                             .font(.headline)
-                            .foregroundColor(Color(.systemMint))
+                            .foregroundColor(.white)
                     }
                     .frame(width: UIScreen.main.bounds.width)
                     .padding(.horizontal, -32)
-                    .background(Color.white)
+                    .background(Color.black)
                     .clipShape(Capsule())
                     .padding()
                     
@@ -50,7 +44,7 @@ struct LocationRequestView: View {
                         Text("Maybe later")
                             .padding()
                             .font(.headline)
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
     
                     }
                     

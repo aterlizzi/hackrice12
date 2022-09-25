@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		108E880228DFB6DA0085D51E /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E880128DFB6DA0085D51E /* HomePageViewModel.swift */; };
 		108E880428DFBA2F0085D51E /* HomePageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E880328DFBA2F0085D51E /* HomePageModel.swift */; };
+		108E880628E014240085D51E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E880528E014240085D51E /* Extension.swift */; };
+		108E880828E01F130085D51E /* SplashShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E880728E01F130085D51E /* SplashShape.swift */; };
+		108E880A28E020680085D51E /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108E880928E020680085D51E /* SplashView.swift */; };
 		10F77B2328DEABD600D5FB5C /* hackrice_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F77B2228DEABD600D5FB5C /* hackrice_appApp.swift */; };
 		10F77B2528DEABD600D5FB5C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F77B2428DEABD600D5FB5C /* ContentView.swift */; };
 		10F77B2728DEABD700D5FB5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10F77B2628DEABD700D5FB5C /* Assets.xcassets */; };
@@ -27,6 +30,9 @@
 /* Begin PBXFileReference section */
 		108E880128DFB6DA0085D51E /* HomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
 		108E880328DFBA2F0085D51E /* HomePageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageModel.swift; sourceTree = "<group>"; };
+		108E880528E014240085D51E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		108E880728E01F130085D51E /* SplashShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashShape.swift; sourceTree = "<group>"; };
+		108E880928E020680085D51E /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		10F77B1F28DEABD600D5FB5C /* hackrice-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hackrice-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F77B2228DEABD600D5FB5C /* hackrice_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hackrice_appApp.swift; sourceTree = "<group>"; };
 		10F77B2428DEABD600D5FB5C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +88,7 @@
 				10F77B2428DEABD600D5FB5C /* ContentView.swift */,
 				10F77B2628DEABD700D5FB5C /* Assets.xcassets */,
 				10F77B2828DEABD700D5FB5C /* Preview Content */,
+				108E880528E014240085D51E /* Extension.swift */,
 			);
 			path = "hackrice-app";
 			sourceTree = "<group>";
@@ -100,6 +107,7 @@
 				27C30AC528DFCA480071EF8B /* GeoLocation */,
 				10F77B3728DEB25F00D5FB5C /* LoginView.swift */,
 				27D5072728DF6A04007F7B41 /* HomePage.swift */,
+				108E880928E020680085D51E /* SplashView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -109,6 +117,7 @@
 			children = (
 				10F77B3328DEAEF100D5FB5C /* LoginModel.swift */,
 				108E880328DFBA2F0085D51E /* HomePageModel.swift */,
+				108E880728E01F130085D51E /* SplashShape.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -210,8 +219,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				10F77B2528DEABD600D5FB5C /* ContentView.swift in Sources */,
+				108E880828E01F130085D51E /* SplashShape.swift in Sources */,
 				27C30AC728DFCA9F0071EF8B /* LocationRequestView.swift in Sources */,
 				10F77B3428DEAEF100D5FB5C /* LoginModel.swift in Sources */,
+				108E880628E014240085D51E /* Extension.swift in Sources */,
 				27C30ACB28DFCADE0071EF8B /* LocationManager.swift in Sources */,
 				10F77B3828DEB25F00D5FB5C /* LoginView.swift in Sources */,
 				27D5072828DF6A04007F7B41 /* HomePage.swift in Sources */,
@@ -220,6 +231,7 @@
 				108E880228DFB6DA0085D51E /* HomePageViewModel.swift in Sources */,
 				10F77B3F28DEC43600D5FB5C /* GoogleLoginViewModel.swift in Sources */,
 				27C30AC928DFCACA0071EF8B /* LocationContentView.swift in Sources */,
+				108E880A28E020680085D51E /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

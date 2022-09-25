@@ -20,6 +20,7 @@ struct hackrice_appApp: App {
                     HomePage()
                         .environmentObject(homePage)
                         .environmentObject(locationManager)
+                        .environmentObject(googleAuthUser)
                 } else if (googleAuthUser.isLoggedIn && locationManager.userLocation == nil) {
                     LocationContentView()
                         .environmentObject(locationManager)

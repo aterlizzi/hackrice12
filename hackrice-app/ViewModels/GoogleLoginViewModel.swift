@@ -122,6 +122,7 @@ class GoogleAuthViewModel: ObservableObject {
                             GIDSignIn.sharedInstance.signOut()
                             self.isLoggedIn = false
                             self.givenName = "Not Logged In"
+                            self.isntPartOfOrg = true
                             self.profilePicUrl =  ""
                             completion(false)
                         }
